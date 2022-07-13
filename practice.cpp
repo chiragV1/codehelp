@@ -1,14 +1,15 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-void fun(int a[]) {
-    cout << a[0] << " ";
-}
-
-int main() {
-    int a[] = {1, 2, 3, 4};
-    fun(a + 1);
-    cout << a[0];
+int main()
+{
+    int a = 10;
+    int *p = &a;
+    int **q = &p;
+    int b = 20;
+    *q = &b;
+    (*p)++;
+    cout << a << " " << b << endl;
     return 0;
 }
