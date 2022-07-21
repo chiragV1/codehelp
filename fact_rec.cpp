@@ -13,7 +13,7 @@ int fact(int n)
 
         int ans = n * fact(n - 1);
         return ans;
-    }
+    } 
     return 0;
 }
 
