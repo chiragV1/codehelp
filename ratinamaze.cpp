@@ -1,3 +1,7 @@
+#include<iostream>
+#include<vector>
+using namespace std; 
+
 class Solution{
     private:
     bool issafe(vector<vector<int>> m , int n, vector<vector<int> > vis ,int x , int y) {
@@ -83,3 +87,7 @@ class Solution{
     }
 };
 
+int main() {
+    
+    return 0;
+}
