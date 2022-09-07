@@ -24,8 +24,8 @@ node* buildtree(node* root) {
 
     root  = new node(data);
 
-    if(data ==-1) {
-        root = NULL;
+    if(data == -1) {
+        return NULL;
     }
 
     cout<<"enter the data for insertion in left of " << data <<endl;
@@ -42,12 +42,19 @@ void LevelOrderTraversal(node* root) { //breath first search
     q.push(root);
 
     while(!q.empty()) {
-        node* temp = NULL;
+        node* temp = q.front() ;
         q.pop() ;
 
+        cout<<temp->data <<" "<<endl;
+
         if(temp->left !=NULL) {
-            q.push(temp->)
+            q.push(temp->left);
         }
+        if(temp->right) {
+            q.push(temp->right);
+        }
+
+        
     }
 }
 
@@ -56,6 +63,12 @@ void RevLevelOrderTrav(node* root) {
 }
 
 int main() {
+
+    node* root = NULL;
+
+    root = buildtree(root);
+
+    LevelOrderTraversal(root);
 
 
 
