@@ -29,32 +29,44 @@ node* buildtree(node* root) {
     }
 
     cout<<"enter the data for insertion in left of " << data <<endl;
-    root->left = buildtree(root->left);
-    cout<<"enter the data for the insertion in right of "<<data << endl;
     root->right = buildtree(root->right);
+    cout<<"enter the data for the insertion in right of "<<data << endl;
+    
+    root->left = buildtree(root->left);
     
     return root;
 }
 
 void LevelOrderTraversal(node* root) { //breath first search
-    queue<node*> q;
-
+    queue<Node*> q;
+    
     q.push(root);
+    q.push(NULL);
 
     while(!q.empty()) {
-        node* temp = q.front() ;
+        Node* temp = q.front();
+        
         q.pop() ;
 
-        cout<<temp->data <<" "<<endl;
-
-        if(temp->left !=NULL) {
-            q.push(temp->left);
+        if(temp ==NULL) {
+            cout<<endl;
+            if(!q.empty()) {
+                q.push(NULL);
+            }
         }
-        if(temp->right) {
+        else{
+            cout<< temp->data<<" ";
+            if(temp->left) {
+            q.push(temp->left);
+            }
+            if(temp->right) {
             q.push(temp->right);
+            }
+
         }
 
         
+
     }
 }
 
