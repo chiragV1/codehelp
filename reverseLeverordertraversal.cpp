@@ -29,10 +29,10 @@ node* buildtree(node* root) {
     }
 
     cout<<"enter the data for insertion in left of " << data <<endl;
-    root->right = buildtree(root->right);
+    root->left = buildtree(root->left);
     cout<<"enter the data for the insertion in right of "<<data << endl;
     
-    root->left = buildtree(root->left);
+    root->right = buildtree(root->right);
     
     return root;
 }
@@ -75,13 +75,38 @@ void LevelOrderTraversal(node* root) { //breath first search
 // }
 
 void inorder(node* root) {
+    
+    //base case
     if(root ==NULL) {
         return ;
     }
-    cout<<r
-    if(root->left) {
-        inorder
+
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+   
+}
+
+void preorder (node* root){
+    //base
+    if(root == NULL) {
+        return;
     }
+
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void Postorder(node* root) {
+    //base
+    if(root == NULL) {
+        return;
+    }
+
+    Postorder(root->left);
+    Postorder(root->right);
+    cout<<root->data<<" ";
 }
 
 int main() {
@@ -91,6 +116,12 @@ int main() {
     root = buildtree(root);
 
     LevelOrderTraversal(root);
+
+    inorder(root);
+    cout<<endl;
+    preorder(root);
+    cout<<endl;
+    Postorder(root);
 
 
 
