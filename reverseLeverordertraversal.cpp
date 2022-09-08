@@ -38,13 +38,13 @@ node* buildtree(node* root) {
 }
 
 void LevelOrderTraversal(node* root) { //breath first search
-    queue<Node*> q;
+    queue<node*> q;
     
     q.push(root);
     q.push(NULL);
 
     while(!q.empty()) {
-        Node* temp = q.front();
+        node* temp = q.front();
         
         q.pop() ;
 
@@ -70,8 +70,18 @@ void LevelOrderTraversal(node* root) { //breath first search
     }
 }
 
-void RevLevelOrderTrav(node* root) {
+// void RevLevelOrderTrav(node* root) {
 
+// }
+
+void inorder(node* root) {
+    if(root ==NULL) {
+        return ;
+    }
+    cout<<r
+    if(root->left) {
+        inorder
+    }
 }
 
 int main() {
