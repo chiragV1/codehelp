@@ -70,9 +70,36 @@ void LevelOrderTraversal(node* root) { //breath first search
     }
 }
 
-// void RevLevelOrderTrav(node* root) {
+void RevLevelOrderTrav(node* root) {
+    queue<node*> q;
 
-// }
+    stack<node*> s;
+
+    q.push(root);
+
+    while(!q.empty()) {
+        node* temp = q.front();
+        q.pop();
+
+        s.push(temp);
+
+         if(temp->left) {
+            q.push(temp->left);
+         }
+         if(temp ->right) {
+            q.push(temp->right);
+         }
+
+    }
+
+    while(!s.empty()) {
+        root = s.top();
+
+        cout<<root->data<<" ";
+
+        s.pop();
+    }
+}
 
 void inorder(node* root) {
     
@@ -122,6 +149,9 @@ int main() {
     preorder(root);
     cout<<endl;
     Postorder(root);
+    cout<<endl;
+    
+    RevLevelOrderTrav(root);
 
 
 
