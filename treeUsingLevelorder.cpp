@@ -15,7 +15,7 @@ class node{
     }
 }; 
 
-void buildtreelevel(node* root ) {
+node* buildtreelevel(node* root ) {
     queue<node*> q ;
     cout<<"Enter the data for the root"<<endl;
     int data ;
@@ -46,19 +46,50 @@ void buildtreelevel(node* root ) {
             q.push(temp->right);
         }
     }
+
+    return root;
 }
 
 void leverordertraversal(node* root) {
     queue<node*> q;
+    
+    q.push(root);
     q.push(NULL);
+
+    while(!q.empty()) {
+        node* temp = q.front();
+        
+        q.pop() ;
+
+        if(temp ==NULL) {
+            cout<<endl;
+            if(!q.empty()) {
+                q.push(NULL);
+            }
+        }
+        else{
+            cout<< temp->data<<" ";
+            if(temp->left) {
+            q.push(temp->left);
+            }
+            if(temp->right) {
+            q.push(temp->right);
+            }
+
+        }
+
+        
+
+    }
     
 }
 int main() {
   
   node* root = NULL;
 
-   buildtreelevel(root);
-
+   root = buildtreelevel(root);
+   cout<<endl;
+   leverordertraversal(root);
  
 return 0;
 }
