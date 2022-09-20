@@ -1,18 +1,24 @@
 #include<bits/stdc++.h>
  
 using namespace std;
-void Selectsort(vector<int> &ans, int n) {
-    for(int i=0 ; i<n-1 ; i++) {
-        int mini = i;
-        for(int k = i; k<n ;k++) {
-            if(ans[k] < ans[mini]) {
-                mini = k;
-            } 
+void insertionsort(vector<int> &arr , int n ) {
+    for(int i=1 ; i<n ; i++) {
+        int temp = arr[i];
+        int j =i-1;
+
+        for( ; j>=0; j--) {
+            
+            if(arr[j] > temp) {
+                arr[j+1] = arr[j];
+            }
+            else {
+                break;
+
+            }
         }
-        swap(ans[i], ans[mini]);
+        arr[j+1] = temp;
     }
 }
-
 void print(vector<int> ans, int n) {
     for(int i=0; i<n; i++) {
         cout<<ans[i]<<" ";
@@ -32,7 +38,7 @@ int main() {
         ans.push_back(x);
     }
 
-    Selectsort(ans, n);
+    insertionsort(ans, n);
 
     print(ans, n);
  
